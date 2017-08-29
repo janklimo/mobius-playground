@@ -44,11 +44,26 @@ describe User do
         expect(@user.outgoing_transactions).to include @outgoing2
       end
     end
+
     describe 'num_credits' do
       it 'returns the credits count' do
         # initial credit
         expect(@user.num_credits).to eq (110 + 100)
       end
+    end
+  end
+
+  describe 'can_send?' do
+    before do
+      @user = create(:user)
+    end
+
+    it 'allows valid transactions' do
+      expect(@user.can_send?(100)).to eq true
+    end
+
+    it 'does not allow sending more than you have' do
+      expect(@user.can_send?(101)).to eq false
     end
   end
 end

@@ -1,0 +1,14 @@
+<%= form_for Transaction.new, html: { class: 'new-transaction' } do |f| %>
+  <tr>
+    <td>
+      <%= user.email %>
+    </td>
+    <td>
+      <%= f.hidden_field :recipient_id, value: user.id %>
+      <%= f.number_field :num_credits, class: 'num-credits', step: :any %>
+    </td>
+    <td>
+      <%= f.submit %>
+    </td>
+  </tr>
+<% end %>

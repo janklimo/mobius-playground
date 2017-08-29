@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Authentication' do
+feature 'Authentication', type: :feature do
   context 'signed in' do
     before do
       user = create(:user)
@@ -9,7 +9,7 @@ feature 'Authentication' do
 
     scenario 'is taken to the dashboard' do
       visit root_path
-      expect(page).to have_content 'yay'
+      expect(page).to have_content 'available credits'
     end
   end
 

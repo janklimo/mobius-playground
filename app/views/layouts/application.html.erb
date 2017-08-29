@@ -16,8 +16,10 @@
 
   <body>
     <%= render partial: 'layouts/navbar' %>
-    <%= render partial: 'layouts/google_analytics' %>
-    <%= render partial: 'layouts/flash' %>
-    <%= yield %>
+    <div id="content-container">
+      <%= render partial: 'layouts/google_analytics' %>
+      <%= render partial: 'layouts/flash' %>
+      <%= yield %>
+    </div>
   </body>
 </html>

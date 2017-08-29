@@ -1,3 +1,23 @@
 <div class="container">
-  yay
+  <div class="credits">
+    <span class="intro">Your available credits</span>
+    <h1 class="display-4">
+      <%= number_with_precision @user.num_credits, precision: 2 %>
+    </h1>
+  </div>
+
+  <h3>Users</h3>
+
+  <table class="table table-hover users-table">
+    <thead>
+      <tr>
+        <th>Recipient</th>
+        <th>Credits</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @users %>
+    </tbody>
+  </table>
 </div>

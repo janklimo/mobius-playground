@@ -14,12 +14,17 @@ class User < ApplicationRecord
     foreign_key: :recipient_id
 
   scope :admins, -> { where(is_admin: true) }
+  scope :regular, -> { where(is_admin: false) }
 
   def num_credits
     # can be done in one query, though this is more legible
     # until performance becomes a concern
     incoming_transactions.sum(:num_credits) -
       outgoing_transactions.sum(:num_credits)
+  end
+
+  def can_send?(amount)
+    num_credits >= amount.to_f
   end
 
   private

@@ -1,0 +1,24 @@
+#content-container {
+  margin-top: 5rem;
+}
+
+.credits {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  .intro {
+    color: $gray-600;
+  }
+
+  h1 {
+    color: $green;
+  }
+}
+
+.users-table {
+  margin-top: 1.25rem;
+
+  .num-credits {
+    width: 90px;
+  }
+}

@@ -1,13 +1,14 @@
 <% content_for :page_title, 'Mobius Playground' %>
 
-<div class="container">
-  <h1>Welcome!</h1>
-  <h4 class="mb-4">This is the Mobius Network Bitcoin API Playground</h4>
-  <div class="row">
-    <div class="col-sm-12">
-      <p>To create a new account, <%= link_to "sign up", new_user_registration_path %> here.</p>
-      <p>If you already have an account, you can <%= link_to "log in", new_user_session_path %> here.</p>
+<div class="jumbotron">
+  <div class="container">
+    <h1>Welcome!</h1>
+    <h4 class="mb-4">This is the Mobius Network Bitcoin API Playground</h4>
+    <div class="row">
+      <div class="col-sm-12">
+        <p>To create a new account, <%= link_to "sign up", new_user_registration_path %> here.</p>
+        <p>If you already have an account, you can <%= link_to "log in", new_user_session_path %> here.</p>
+      </div>
     </div>
   </div>
 </div>
-
