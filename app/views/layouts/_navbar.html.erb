@@ -1,0 +1,8 @@
+<div class="container mt-3 mb-5">
+  <%= link_to "Mobius Playground", root_path %>
+  <span class="float-right">
+    <% if user_signed_in? %>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    <% end %>
+  </span>
+</div>
