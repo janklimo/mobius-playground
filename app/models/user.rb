@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :incoming_transactions, class_name: 'Transaction',
     foreign_key: :recipient_id
 
+  scope :admins, -> { where(is_admin: true) }
+
   def num_credits
     # can be done in one query, though this is more legible
     # until performance becomes a concern
@@ -22,7 +24,15 @@ class User < ApplicationRecord
 
   private
 
+  # create an admin account unless it exists already
   def assign_initial_credit
+    admin = User.admins.last ||
+      User.create(
+        email: 'hello@mobius.network',
+        is_admin: true,
+        password: rand(36**11).to_s(36).upcase[0, 8]
+      )
 
+    Transaction.create(sender: admin, recipient: self, num_credits: 100)
   end
 end
