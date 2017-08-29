@@ -28,6 +28,21 @@ describe TransactionsController, type: :controller do
           expect(@user.num_credits).to eq 90
           expect(flash[:notice]).to include 'sent 10 credits'
         end
+
+        it 'does not allow the user to change sender' do
+          other_user = create(:user)
+          post :create, params: {
+            transaction: {
+              sender_id: other_user.id, # nice try
+              num_credits: 10,
+              recipient_id: create(:user).id,
+            }
+          }
+          expect(response).to redirect_to root_url
+          expect(@user.num_credits).to eq 90
+          expect(other_user.num_credits).to eq 100
+          expect(flash[:notice]).to include 'sent 10 credits'
+        end
       end
 
       context 'sending more than we have' do
