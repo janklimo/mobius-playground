@@ -7,4 +7,10 @@ FactoryGirl.define do
   factory :admin, parent: :user do
     is_admin true
   end
+
+  factory :transaction do
+    association :sender, factory: :user
+    association :recipient, factory: :user
+    num_credits 10
+  end
 end
