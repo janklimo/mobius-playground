@@ -16,9 +16,21 @@
 }
 
 .users-table {
-  margin-top: 1.25rem;
+  margin: 1.25rem auto 3rem;
 
   .num-credits {
     width: 90px;
+  }
+}
+
+.transactions-table {
+  .positive {
+    font-weight: bold;
+    color: $green;
+  }
+
+  .negative {
+    font-weight: bold;
+    color: $red;
   }
 }

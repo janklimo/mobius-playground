@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829121858) do
+ActiveRecord::Schema.define(version: 20170830041546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20170829121858) do
     t.bigint "sender_id"
     t.bigint "recipient_id"
     t.float "num_credits", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["recipient_id"], name: "index_transactions_on_recipient_id"
     t.index ["sender_id"], name: "index_transactions_on_sender_id"
   end

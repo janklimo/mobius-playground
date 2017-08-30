@@ -20,4 +20,21 @@
       <%= render @users %>
     </tbody>
   </table>
+
+  <h3>Recent transactions</h3>
+
+  <table class="table table-hover transactions-table">
+    <thead>
+      <tr>
+        <th>Sender</th>
+        <th>Recipient</th>
+        <th>Date</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'transaction', collection: @transactions,
+           as: :transaction, locals: { user: @user} %>
+    </tbody>
+  </table>
 </div>

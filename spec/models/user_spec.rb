@@ -51,6 +51,12 @@ describe User do
         expect(@user.num_credits).to eq (110 + 100)
       end
     end
+
+    describe 'all_transactions' do
+      it 'returns a full list of transactions' do
+        expect(@user.all_transactions.count).to eq 5
+      end
+    end
   end
 
   describe 'can_send?' do

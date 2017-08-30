@@ -27,6 +27,10 @@ class User < ApplicationRecord
     num_credits >= amount.to_f
   end
 
+  def all_transactions
+    Transaction.where(sender: self).or(Transaction.where(recipient: self))
+  end
+
   private
 
   # create an admin account unless it exists already
