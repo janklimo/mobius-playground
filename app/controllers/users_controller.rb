@@ -10,4 +10,8 @@ class UsersController < ApplicationController
       .sorted
       .limit(5)
   end
+
+  def current
+    render json: current_user
+  end
 end
